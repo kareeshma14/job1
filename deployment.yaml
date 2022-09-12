@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-deployment
+  labels:
+    app: java-label
+spec:
+  replicas: 5
+  selector:
+     matchLabels:
+       app: java-label
+  template:
+    metadata:
+      labels:
+        app: java-label
+    spec:
+      containers:
+        - name: java-container
+          image: kareeshma14/java
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
